@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,14 +22,14 @@ public class ApplicantService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private HttpClient httpClient = HttpClients.createDefault();
 
-    public List<ApplicantDTO> findAll() throws IOException {
+    public ArrayList<ApplicantDTO> findAll() throws IOException {
         HttpGet request = new HttpGet(URL+"/ApplicantController/");
         HttpResponse response = httpClient.execute(request);
         String result = EntityUtils.toString(response.getEntity());
 
 
-        Type listType = new TypeToken<List<ApplicantDTO>>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
-        List<ApplicantDTO> applicants = new Gson().fromJson(result, listType);
+        Type listType = new TypeToken<ArrayList<ApplicantDTO>>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
+        ArrayList<ApplicantDTO> applicants = new Gson().fromJson(result, listType);
 
         return applicants;
     }
