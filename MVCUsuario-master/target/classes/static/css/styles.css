@@ -1,0 +1,19 @@
+header{
+    background-color: blue;
+}
+body{
+background-color: aqua;
+
+}
+footer{
+    float: left;
+    clear: left;
+    width: 100%;
+    background-color: chartreuse
+}
+div{
+    background-color: orangered;
+}
+.div2{
+    background-color: darkcyan ;
+}
