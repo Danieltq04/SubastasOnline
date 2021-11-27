@@ -28,7 +28,7 @@ public class ApplicantService {
         String result = EntityUtils.toString(response.getEntity());
 
 
-        Type listType = new TypeToken<ArrayList<ApplicantDTO>>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
+        Type listType = new TypeToken<ArrayList<ApplicantDTO>>() {}.getType();
         ArrayList<ApplicantDTO> applicants = new Gson().fromJson(result, listType);
 
         return applicants;
