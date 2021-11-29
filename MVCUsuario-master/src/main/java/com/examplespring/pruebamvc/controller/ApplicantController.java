@@ -34,10 +34,10 @@ public class ApplicantController {
     public ApplicantController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
-    @GetMapping("/index")
+    @GetMapping("/index2")
     public String greetingForms(Model model) {
         model.addAttribute("greeting", "Holaaa");
-        return "index";
+        return "index2";
     }
     @PostMapping("/applicant")
     public String greetingSubmit(@ModelAttribute UserRequest request, Model model) throws IOException {

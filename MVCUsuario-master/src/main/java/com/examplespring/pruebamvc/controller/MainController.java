@@ -18,7 +18,7 @@ public class MainController {
     @GetMapping(value = "/")
     public String welcome(Model model){
         model.addAttribute("nombre","Daniel");
-        return "index";
+        return "index2";
     }
 
 }

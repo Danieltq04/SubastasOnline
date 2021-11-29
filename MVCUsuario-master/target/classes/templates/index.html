@@ -20,7 +20,7 @@
         REGISTRARSE
     </div>
     <div class="encuesta">
-        <form name="formulario" action="#" method="POST">
+        <form name="formulario" action="#" method="POST" th:action="@{/index}" th:object="${u}">
             <div class="item">
                 <div class="formulario" id="nombre-form">
                     <label for="nombre">Nombre:</label>

@@ -23,6 +23,7 @@
     Hola <span th:text="${greeting}">Mundo</span>
 </h1>
 -->
+<!--
 <div class="contenido">
 
     <div th:each="applicant:${greeting}">
@@ -33,7 +34,12 @@
         </br>
     </div>
 </div>
-
+-->
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <p>Id: <input type="text" th:field="*{id}" /></p>
+    <p>Id: <input type="text" th:field="*{content}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 <footer></footer>
 
 </body>
