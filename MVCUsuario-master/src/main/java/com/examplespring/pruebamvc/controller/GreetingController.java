@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.IOException;
@@ -85,38 +86,32 @@ public class GreetingController {
         return "register";
     }
 
-    @PostMapping("/userRequest")
+    @RequestMapping("/userRequest")
     public String greetingSubmit(@ModelAttribute UserRequest userRequest, Model model) throws IOException {
         model.addAttribute("userRequest", userRequest);
 
-        String resultado = authenticationService.saveUser(userRequest);
-        if(true){return "result";}
-        else{
-            return "userRequest";
+        if(userRequest.getEmail() == ""  || userRequest.getRole() == "Seleccione"
+        || userRequest.getLastname() == "" || userRequest.getName() == ""
+                || userRequest.getPassword() == ""){
+            return "register";
         }
-
-    }
-
-
-
-
-
-
-
-    @GetMapping("/crearOferta")
-    public String greetingForm4(Model model) {
-        model.addAttribute("userRequest", new UserRequest());
-        return "crearOferta";
-    }
-    @PostMapping("/crearOferta")
-    public String greetingSubmit4(@ModelAttribute UserRequest userRequest, Model model) throws IOException {
-        model.addAttribute("userRequest", userRequest);
-
-        String resultado = authenticationService.saveUser(userRequest);
-        if(true){return "result";}
         else{
-            return "crearOferta";
+            String resultado = authenticationService.saveUser(userRequest);
+            return "redirect:offer";
         }
+        /*
+        if(userRequest.getEmail() == ""){return "userRequest";}
+        else{
+            String resultado = authenticationService.saveUser(userRequest);
+            return "offer";
+        }*/
+
     }
+
+
+
+
+
+
 
 }
