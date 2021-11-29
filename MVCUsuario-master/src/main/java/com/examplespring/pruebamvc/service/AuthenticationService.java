@@ -48,7 +48,7 @@ public class AuthenticationService {
         ApplicantDTO applicant = new ApplicantDTO();
         BidderDTO bidder = new BidderDTO();
 
-        if(userRequest.getRole().equals("applicant")){
+        if(userRequest.getRole().equals("Solicitante")){
             applicant.setEmail(userRequest.getEmail());
             applicant.setPassword(userRequest.getPassword());
             //applicant.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));
@@ -69,7 +69,7 @@ public class AuthenticationService {
             String result = EntityUtils.toString(response.getEntity());
             return result;
 
-        }else if(userRequest.getRole().equals("bidder")) {
+        }else if(userRequest.getRole().equals("Ofertante")) {
             bidder.setEmail(userRequest.getEmail());
             bidder.setPassword(userRequest.getPassword());
             //bidder.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link th:href="@{/css/authentication.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="cabecera">
+        <header>
+            <div class="encabezado">
+                JAVA SOBRE WEB
+            </div>
+        </header>
+    </div>
+    <div class="contenido">
+        <div class="register">
+            REGISTRARSE
+        </div>
+
+        <div class="encuesta">
+            <form name="formulario" action="#" method="POST" th:action="@{/userRequest}" th:object="${userRequest}">
+                <div class="item">
+                    <div class="formulario" id="nombre-form">
+                        <label for="nombre">Nombre:</label>
+                        <input class="form-control" type="text" id="nombre" placeholder="Nombre" th:field="*{name}">
+                    </div>
+                    <div class="formulario" id="apellido-form">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" placeholder="Apellido" th:field="*{lastname}">
+                    </div>
+                    <div class="formulario" id="rol-form">
+                        <label for="rol">Rol:</label>
+                        <select name="rol" id="rol" th:field="*{role}">
+                            <option value="Seleccione">Seleccione</option>
+                            <option value="Ofertante">Ofertante</option>
+                            <option value="Solicitante">Solicitante</option>
+                        </select>
+                    </div>
+                    <div class="formulario" id="email-form">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" placeholder="Correo Electrónico" th:field="*{email}">
+                    </div>
+                    <div class="formulario" id="pass">
+                        <label for="password">Contraseña:</label>
+                        <input type="text" id="password" placeholder="Contraseña" th:field="*{password}">
+                    </div>
+                    <div class="formulario" id="botones">
+                        <input type="submit" value="Registrar" id="register" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>Aplicaciones Java Sobre Web</p>
+    </footer>
+<!--
+    <script type="module" th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/jQuery/jquery-3.5.1.min.js}"></script>
+    <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
+    <script src="/static/js/main.js"></script>
+-->
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>

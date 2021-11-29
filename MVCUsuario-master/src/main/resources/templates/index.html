@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link th:href="@{/css/authentication.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer.css}" rel="stylesheet" />
+
+</head>
+<body>
+<div class="cabecera">
+    <header>
+        <div class="encabezado">
+            JAVA SOBRE WEB
+        </div>
+    </header>
+</div>
+
+<div class="contenido">
+    <div class="register">
+        INGRESAR
+    </div>
+    <div class="form">
+    <div class="encuesta">
+        <form name="formulario" action="#" method="POST">
+            <div class="item">
+                <div class="formulario" id="email-form">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" placeholder="Correo Electrónico">
+                </div>
+                <div class="formulario" id="pass">
+                    <label for="password">Contraseña:</label>
+                    <input type="text" id="password" placeholder="Contraseña">
+                </div>
+
+                <div class="formulario" id="botones">
+                    <input type="button" value="Ingresar" id="login"/>
+                    <input type="button" value="Registrar" id="register"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<footer>
+    <p>Aplicaciones Java Sobre Web</p>
+</footer>
+</body>
+</html>
