@@ -6,37 +6,41 @@ import com.ajsw.microdb.model.Request;
 import java.util.Date;
 
 public class OfferRequest {
-    private Bidder bidderId;
-    private Request request;
+    private String bidderId;
+    private String requestId;
     private String description;
+    private String zone;
+    private String postalCode;
     private double price;
     private Date date;
 
     public OfferRequest() {
     }
 
-    public OfferRequest(Bidder bidderId, Request request, String description, double price, Date date) {
+    public OfferRequest(String bidderId, String requestId, String description, String zone, String postalCode, double price, Date date) {
         this.bidderId = bidderId;
-        this.request = request;
+        this.requestId = requestId;
         this.description = description;
+        this.zone = zone;
+        this.postalCode = postalCode;
         this.price = price;
         this.date = date;
     }
 
-    public Bidder getBidderId() {
+    public String getBidderId() {
         return bidderId;
     }
 
-    public void setBidderId(Bidder bidderId) {
+    public void setBidderId(String bidderId) {
         this.bidderId = bidderId;
     }
 
-    public Request getRequest() {
-        return request;
+    public String getRequest() {
+        return requestId;
     }
 
-    public void setRequest(Request request) {
-        this.request = request;
+    public void setRequest(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getDescription() {
@@ -45,6 +49,22 @@ public class OfferRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public double getPrice() {

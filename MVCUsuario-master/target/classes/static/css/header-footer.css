@@ -12,6 +12,11 @@ html {
     width: 100%;
     padding: 10px;
     background-color: #717b7a;
+    background-color: #00ad9c;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header {
     width: 100%;
@@ -21,7 +26,7 @@ header {
     justify-content: center;
 }
 .encabezado{
-    
+    text-align: center;
     font-size: 25px;
 }
 
@@ -47,7 +52,6 @@ footer {
 
 .contenido{
     min-height: 78vh;
-    max-height: auto;
     display: flex;
     flex-direction: column;
     background-color: #c7c7c7

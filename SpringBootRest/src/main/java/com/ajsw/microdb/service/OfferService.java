@@ -19,8 +19,10 @@ public class OfferService {
     public Offer save(OfferRequest offerRequest){
         Offer offer = new Offer();
         offer.setBidderId(offerRequest.getBidderId());
-        offer.setRequest(offerRequest.getRequest());
+        offer.setRequestId(offerRequest.getRequest());
         offer.setDescription(offerRequest.getDescription());
+        offer.setZone(offerRequest.getZone());
+        offer.setPostalCode(offerRequest.getPostalCode());
         offer.setPrice(offerRequest.getPrice());
         offer.setDate(offerRequest.getDate());
         return offerRepository.save(offer);
@@ -35,8 +37,10 @@ public class OfferService {
     public Offer update(Offer offer){
         Offer offerUpdate = offerRepository.getOfferById(offer.getId());
         offerUpdate.setBidderId(offer.getBidderId());
-        offerUpdate.setRequest(offer.getRequest());
+        offerUpdate.setRequestId(offer.getRequestId());
         offerUpdate.setDescription(offer.getDescription());
+        offerUpdate.setZone(offer.getZone());
+        offerUpdate.setPostalCode(offer.getPostalCode());
         offerUpdate.setPrice(offer.getPrice());
         offerUpdate.setDate(offer.getDate());
         offerRepository.save(offerUpdate);
