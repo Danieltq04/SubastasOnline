@@ -1,35 +1,28 @@
 package com.examplespring.pruebamvc.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.io.Serializable;
 import java.util.Date;
 
-public class Offer {
+public class CreateOffer {
     private String bidderId;
-    private String request;
+    private String requestId;
     private String description;
     private String zone;
     private String postalCode;
     private double price;
     private Date date;
 
-    public Offer() {
+    public CreateOffer() {
     }
 
-    public Offer(String bidderId, String requestId, String description, String zone, String postalCode, double price, Date date) {
+    public CreateOffer(String bidderId, String requestId, String description, String zone, String postalCode, double price, Date date) {
         this.bidderId = bidderId;
-        this.request = requestId;
+        this.requestId = requestId;
         this.description = description;
         this.zone = zone;
         this.postalCode = postalCode;
         this.price = price;
         this.date = date;
     }
-
 
     public String getBidderId() {
         return bidderId;
@@ -40,11 +33,11 @@ public class Offer {
     }
 
     public String getRequestId() {
-        return request;
+        return requestId;
     }
 
     public void setRequestId(String requestId) {
-        this.request = requestId;
+        this.requestId = requestId;
     }
 
     public String getDescription() {

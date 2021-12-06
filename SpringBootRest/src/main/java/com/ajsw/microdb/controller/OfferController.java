@@ -40,5 +40,9 @@ public class OfferController {
     public Offer update(@RequestBody Offer offer){
         return offerService.update(offer);
     }
+    @GetMapping(value = "/getByPostalCode/{id}")
+    public List<Offer> getByPostalCode(@PathVariable String id){
+        return offerService.getByPostalCode(id);
+    }
 
 }

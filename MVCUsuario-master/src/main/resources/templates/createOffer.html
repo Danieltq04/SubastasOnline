@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link th:href="@{/css/authentication.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="cabecera">
+    <header>
+        <div class="encabezado">
+            JAVA SOBRE WEB
+        </div>
+    </header>
+</div>
+<div class="contenido">
+    <div class="register">
+        CREAR UNA NUEVA OFERTA
+    </div>
+
+    <div class="encuesta">
+        <form name="formulario" action="#" method="POST" th:action="@{/createOffer}" th:object="${createOffer}">
+            <div class="item">
+                <div class="formulario" id="nombre-oferta">
+                    <label for="nombre_oferta">Nombre de la oferta:</label>
+                    <input class="form-control" type="text" id="nombre_oferta" placeholder="Nombre de la oferta" th:field="*{description}">
+                </div>
+                <div class="formulario" id="zona-oferta">
+                    <label for="zona_oferta">Zona:</label>
+                    <input class="form-control" type="text" id="zona_oferta" placeholder="Zona" th:field="*{zone}">
+                </div>
+                <div class="formulario" id="codigo_postal">
+                    <label for="postal_code">Código Postal:</label>
+                    <input class="form-control" type="text" id="postal_code" placeholder="Código Postal" th:field="*{postalCode}">
+                </div>
+                <div class="formulario" id="precio_oferta">
+                    <label for="price">Precio:</label>
+                    <input class="form-control" type="text" id="price" placeholder="Precio" th:field="*{price}">
+                </div>
+
+                <div class="formulario" id="botones">
+                    <input type="submit" value="Crear oferta" id="pushOffer" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer>
+    <p>Aplicaciones Java Sobre Web</p>
+</footer>
+</body>
+</html>

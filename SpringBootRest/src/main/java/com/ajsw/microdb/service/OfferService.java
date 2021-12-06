@@ -19,7 +19,7 @@ public class OfferService {
     public Offer save(OfferRequest offerRequest){
         Offer offer = new Offer();
         offer.setBidderId(offerRequest.getBidderId());
-        offer.setRequestId(offerRequest.getRequest());
+        offer.setRequestId(offerRequest.getRequestId());
         offer.setDescription(offerRequest.getDescription());
         offer.setZone(offerRequest.getZone());
         offer.setPostalCode(offerRequest.getPostalCode());
@@ -52,4 +52,9 @@ public class OfferService {
     public Offer getById(String id){
         return offerRepository.getOfferById(id);
     }
+    public List<Offer> getByPostalCode(String id){
+
+        return offerRepository.getOffersByPostalCode(id);
+    }
+
 }

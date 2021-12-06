@@ -2,7 +2,9 @@ package com.examplespring.pruebamvc.controller;
 
 import com.examplespring.pruebamvc.dto.ApplicantDTO;
 import com.examplespring.pruebamvc.dto.UserRequest;
+import com.examplespring.pruebamvc.model.CreateOffer;
 import com.examplespring.pruebamvc.model.Greeting;
+import com.examplespring.pruebamvc.model.Offer;
 import com.examplespring.pruebamvc.service.ApplicantService;
 import com.examplespring.pruebamvc.service.AuthenticationService;
 import com.examplespring.pruebamvc.service.OfferService;
@@ -24,11 +26,14 @@ public class GreetingController {
 
     private final ApplicantService applicantService;
     private final AuthenticationService authenticationService;
+    private final OfferService offerService;
 
     @Autowired
-    public GreetingController(ApplicantService applicantService,AuthenticationService authenticationService) {
+    public GreetingController(ApplicantService applicantService,AuthenticationService authenticationService,
+                              OfferService offerService) {
         this.applicantService = applicantService;
         this.authenticationService = authenticationService;
+        this.offerService = offerService;
     }
     @GetMapping("/example")
     List<ApplicantDTO> all() throws IOException {
@@ -113,5 +118,15 @@ public class GreetingController {
 
 
 
-
+    @GetMapping("/createOffer")
+    public String greetingForm8(Model model) {
+        model.addAttribute("createOffer", new CreateOffer());
+        return "createOffer";
+    }
+    @RequestMapping("/createOffer")
+    public String greetingSubmit14(@ModelAttribute CreateOffer createOffer, Model model) throws IOException {
+        model.addAttribute("createOffer", createOffer);
+        String resultado = offerService.saveOffer(createOffer);
+        return "redirect:offer";
+    }
 }
