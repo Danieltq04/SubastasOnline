@@ -6,12 +6,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link th:href="@{/css/ofertas.css}" rel="stylesheet" />
     <link th:href="@{/css/header-footer.css}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/3dc5764727.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-<div class="cabecera">
-    <header></header>
-
-</div>
 <!--
 <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
     <p>Id: <input type="text" th:field="*{id}" /></p>
@@ -23,9 +29,33 @@
     Hola <span th:text="${greeting}">Mundo</span>
 </h1>
 -->
+<div class="cabecera">
+    <header>
+        <div class="encabezado">
+            JAVA SOBRE WEB
+        </div>
+    </header>
+</div>
 <div class="contenido">
+    <div class="register">
+        Ofertas Disponibles
+    </div>
+    <div class="header-buscador">
+        <label class="texto-busqueda">BUSCAR OFERTAS POR CÓDIGO POSTAL</label>
+    </div>
+    <div class="container-buscador">
 
-    <div class="contenedor-tarjetas">
+        <div class="buscar">
+            <div class="texto">
+                <input type="text" class="buscar-texto" placeholder="Ingrese el código postal de la zona"
+                       id="input-texto" />
+            </div>
+            <div class="busqueda boton">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor-tarjetas" id="contenedor-tarjetas">
         <button class="tarjeta" th:each="offer:${offers}">
             <div class="trabajo">
                 <div class="descripcion-trabajo" th:text="${offer.description}">Arquitectura</div>
@@ -48,7 +78,10 @@
     </div>
 </div>
 
-<footer></footer>
+<footer>
+    <p>Aplicaciones Java Sobre Web</p>
+</footer>
+<script type="text/javascript" th:src="@{/js/offer.js}"></script>
 
 </body>
 </html>

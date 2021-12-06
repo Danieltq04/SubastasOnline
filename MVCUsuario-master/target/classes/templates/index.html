@@ -4,6 +4,10 @@
     <title>Title</title>
     <link th:href="@{/css/authentication.css}" rel="stylesheet" />
     <link th:href="@{/css/header-footer.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -17,27 +21,12 @@
 
 <div class="contenido">
     <div class="register">
-        REGISTRARSE
+        INGRESAR
     </div>
+    <div class="form">
     <div class="encuesta">
-        <form name="formulario" action="#" method="POST" th:action="@{/index}" th:object="${u}">
+        <form name="formulario" action="#" method="POST">
             <div class="item">
-                <div class="formulario" id="nombre-form">
-                    <label for="nombre">Nombre:</label>
-                    <input class="form-control" type="text" id="nombre" placeholder="Nombre">
-                </div>
-                <div class="formulario" id="apellido-form">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" placeholder="Apellido">
-                </div>
-                <div class="formulario" id="rol-form">
-                    <label for="rol">Rol:</label>
-                    <select name="rol" id="rol">
-                        <option value="Seleccione">Seleccione</option>
-                        <option value="Ofertante">Ofertante</option>
-                        <option value="Solicitante">Solicitante</option>
-                    </select>
-                </div>
                 <div class="formulario" id="email-form">
                     <label for="email">Email:</label>
                     <input type="text" id="email" placeholder="Correo Electrónico">
@@ -48,15 +37,18 @@
                 </div>
 
                 <div class="formulario" id="botones">
-                    <input type="button" value="Registrar" id="register"/>
+                    <input type="button" value="Ingresar" id="login"/>
+                    <input type="button" value="Registrar" id="goToRegister"/>
                 </div>
             </div>
         </form>
+    </div>
     </div>
 </div>
 
 <footer>
     <p>Aplicaciones Java Sobre Web</p>
 </footer>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>

@@ -38,10 +38,9 @@ label{
 }
 
 #botones{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-    column-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
     padding-bottom: 15px;
     font-size: 18px;
 }
@@ -62,4 +61,12 @@ label{
     border-bottom: solid 1px black;
     font-size: 25px;
     padding: 10px;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
 }

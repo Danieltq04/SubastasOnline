@@ -23,3 +23,7 @@ $(document).on('click', '#register', function () {
 window.onload = () => {
     console.log("A")
 }
+$(document).on('click', '#goToRegister', function () {
+    debugger;
+    window.location.href='userRequest'
+});
