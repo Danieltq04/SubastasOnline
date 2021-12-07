@@ -46,7 +46,7 @@ public class OfferService {
             offer_request.setDescription(offer.getDescription());
         offer_request.setZone(offer.getZone());
         offer_request.setPostalCode(offer.getPostalCode());
-        //offer_request.setPrice(offer.getPrice());
+
         offer_request.setBidderId("string");
         offer_request.setDate(new Date());
         offer_request.setRequestId("string");

@@ -39,19 +39,6 @@ public class GreetingController {
     List<ApplicantDTO> all() throws IOException {
         return applicantService.findAll();
     }
-    /*
-    @GetMapping("/index")
-    public String greetingForm(Model model) {
-        model.addAttribute("greeting", "Holaaa");
-        return "index";
-    }*/
-/*
-    @GetMapping("/greeting")
-    public String greetingForms2(Model model) throws IOException {
-        model.addAttribute("greeting", applicantService.findAll());
-        return "greeting";
-    }
-*/
 
     @GetMapping("/index")
     public String greetingForm(Model model) {
@@ -68,21 +55,6 @@ public class GreetingController {
         model.addAttribute("index", "Holaaa");
         return "result";
     }
-
-    @GetMapping("/greeting")
-    public String greetingForms(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "greeting";
-    }
-
-    @PostMapping("/greeting")
-    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
-        model.addAttribute("greeting", greeting);
-        return "result";
-    }
-
-
-
 
 
     @GetMapping("/userRequest")
@@ -104,13 +76,6 @@ public class GreetingController {
             String resultado = authenticationService.saveUser(userRequest);
             return "redirect:offer";
         }
-        /*
-        if(userRequest.getEmail() == ""){return "userRequest";}
-        else{
-            String resultado = authenticationService.saveUser(userRequest);
-            return "offer";
-        }*/
-
     }
 
 

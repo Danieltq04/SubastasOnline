@@ -23,24 +23,16 @@ import java.util.HashSet;
 public class AuthenticationService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    //private final ApplicantRepository applicantRepository;
-    //private final BidderRepository bidderRepository;
-    //private BCryptPasswordEncoder bCryptPasswordEncoder;
     private final String URL = "http://localhost:8088/api";
     private final ObjectMapper objectMapper = new ObjectMapper();
     private HttpClient httpClient = HttpClients.createDefault();
 
     @Autowired
-    public AuthenticationService(//BCryptPasswordEncoder bCryptPasswordEncoder,
+    public AuthenticationService(
                                  UserRepository userRepository,
-                                 RoleRepository roleRepository/*,
-                                 ApplicantRepository applicantRepository,
-                                 BidderRepository bidderRepository*/) {
+                                 RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        //this.applicantRepository = applicantRepository;
-        //this.bidderRepository = bidderRepository;
-        //this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public String saveUser(UserRequest userRequest) throws IOException {
@@ -51,17 +43,12 @@ public class AuthenticationService {
         if(userRequest.getRole().equals("Solicitante")){
             applicant.setEmail(userRequest.getEmail());
             applicant.setPassword(userRequest.getPassword());
-            //applicant.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));
             applicant.setName(userRequest.getName());
             applicant.setLastname(userRequest.getLastname());
             applicant.setScore(userRequest.getScore());
             createUserRole(applicant,userRequest.getRole());
 
 
-
-            /*
-            applicantRepository.save(applicant);
-            */
             HttpPost request = new HttpPost(URL+"/ApplicantController/");
             request.addHeader("content-type", "application/json");
             request.setEntity(new StringEntity(objectMapper.writeValueAsString(applicant)));
@@ -72,13 +59,10 @@ public class AuthenticationService {
         }else if(userRequest.getRole().equals("Ofertante")) {
             bidder.setEmail(userRequest.getEmail());
             bidder.setPassword(userRequest.getPassword());
-            //bidder.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));
             bidder.setName(userRequest.getName());
             bidder.setLastname(userRequest.getLastname());
             createUserRole(bidder, userRequest.getRole());
-            /*
-            bidderRepository.save(bidder);
-             */
+
             HttpPost request = new HttpPost(URL+"/BidderController/");
             request.addHeader("content-type", "application/json");
             request.setEntity(new StringEntity(objectMapper.writeValueAsString(bidder)));
